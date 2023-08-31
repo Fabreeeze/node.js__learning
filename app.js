@@ -1,4 +1,5 @@
 const http = require('http')
+const path = require('path');
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -17,6 +18,10 @@ app.use(bodyParser.urlencoded({extended:false}));
 //app.post() triggers for only post requests
 //similarly app.get() woks for get request only
 
+app.use(express.static(path.join(__dirname,'public')));
+//this allows us to statically provide read access to certain files directly
+
+
 app.use('/admin',adminRoutes);
 //here '/admin' filters the requests and only requsts goin to '/admin/.... ' are 
 //sent throught to this code block
@@ -34,7 +39,7 @@ app.use(shopRoutes);
 app.use((req,res,next)=>{
     //this code is executed when no other app.use() code thingies match and hence is a page not on
     // our site
-    res.status(404).send('<h1>Page not found!!! </h1>');
+    res.status(404).sendFile(path.join(__dirname,'views','404.html'));
 });
 app.listen(4000);
 // const server = http.createServer(app);
