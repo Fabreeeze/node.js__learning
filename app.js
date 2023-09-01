@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname,'public')));
 //this allows us to statically provide read access to certain files directly
 
 
-app.use('/admin',adminRoutes);
+app.use('/admin',adminRoutes.routes);
 //here '/admin' filters the requests and only requsts goin to '/admin/.... ' are 
 //sent throught to this code block
 app.use(shopRoutes);
