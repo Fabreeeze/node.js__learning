@@ -15,7 +15,7 @@ router.get('/add-product', (req,res,next) => {
     //still using '..' in just to showcase the two methods shop.js
 });
 
-router.post('/product',(req,res,next)=>{
+router.post('/add-product',(req,res,next)=>{
     // console.log("hellow here!!=====");
     // console.log(req.body);
     products.push({title: req.body.title});

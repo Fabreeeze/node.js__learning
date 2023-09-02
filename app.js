@@ -12,6 +12,14 @@ const shopRoutes = require('./routes/shop')
 
 const app= express();
 
+app.set('view engine','pug');
+//here we tell express tht we want to add content using templates using pug
+
+app.set('views','views');
+//here first views is a keyword while second views is the value assigned to 
+//it and is the name of the folder where we are storing the tempaltes to be added/rendered
+//so we are telling express where to find the templates
+
 app.use(bodyParser.urlencoded({extended:false}));
 
 //app.use() runs for all requests
